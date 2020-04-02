@@ -1,5 +1,6 @@
 import React from 'react';
 import data from '../../data.json'
+import TableRow from './components/TableRow/tablerow';
 
 export default function Table() {
     console.log(data);
@@ -18,13 +19,11 @@ export default function Table() {
             </thead>
             <tbody>
                 {
-                    data.map(({name, email, phone, nat}) => (
-                        <tr>
-                            <td>{`${name.first} ${name.last}`}</td>
-                            <td>{email}</td>
-                            <td>{phone}</td>
-                            <td>{nat}</td>
-                        </tr>
+                    data.map((person) => (
+                        <TableRow
+                            key={person.phone}
+                            person={person}
+                        />
                     ))
                 }
             </tbody>
